@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Financial Management - Budgeting Tools</title>    
+    <style>
+        header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #34495e;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #e67e22;
+        }
+        
+        .main-content {
+            padding: 15px;
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            height: 200px;
+        }
+
+        .definition {
+            font-family: Arial;
+        }
+
+        .definition b {
+            color: green;
+        }
+
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: auto;
+        }
+
+        table b {
+            text-align: right;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 15px;
+        }
+
+        th {
+            text-align: center;
+            background-color: #d3d3d3;
+        }
+
+        .highlight {
+            background-color: #f2f2f2;
+        }
+
+        .right-align {
+            text-align: right;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .form-control {
+            width: 90%; 
+            padding: 12px; 
+            font-size: 16px; 
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+ 
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+ 
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        function AfterCalculating() {
+            document.getElementById("after-calculating").innerHTML = 'At the end of the month you may have an extra <span style="color: red;">$160</span> in your budget.';
+            var imageSrc = "images/Pie_Chart.png"; 
+            document.getElementById("pie-chart").innerHTML = '<img src="' + imageSrc + '" alt="Budget Chart" style="width:100%;height:100%;">';
+        }
+
+        function AfterReport() {
+            var reportHTML = `
+                <h1 style="text-align: center;">Financial Report</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>School Expenses</td>
+                            <td>$30</td>
+                        </tr>
+                        <tr>
+                            <td>Food and Groceries</td>
+                            <td>$150</td>
+                        </tr>
+                        <tr>
+                            <td>Living Expenses</td>
+                            <td>$0</td>
+                        </tr>
+                        <tr>
+                            <td>Professional Fees</td>
+                            <td>$30</td>
+                        </tr>
+                        <tr>
+                            <td>Entertainment and Travel</td>
+                            <td>$0</td>
+                        </tr>
+                        <tr>
+                            <td>Loan Payments</td>
+                            <td>$0</td>
+                        </tr>
+                        <tr>
+                            <td>Clothing Expenses</td>
+                            <td>$50</td>
+                        </tr>
+                        <tr>
+                            <td>Contributions and Gifts</td>
+                            <td>$20</td>
+                        </tr>
+                        <tr>
+                            <td>Savings and Investments</td>
+                            <td>$160</td>
+                        </tr>
+                        <tr>
+                            <td>Miscellaneous Expenses</td>
+                            <td>$10</td>
+                        </tr>
+                        <tr>
+                            <td>Personal Toiletries</td>
+                            <td>$20</td>
+                        </tr>
+                        <tr>
+                            <td>Transportation</td>
+                            <td>$30</td>
+                        </tr>
+                        <tr class="total">
+                            <td>Total Contributions and Income:</td>
+                            <td>$500</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="text-align: center;">
+                    <h2>Analysis</h2>
+                    <p>Upon reviewing the financial data, it is clear that the largest expense category is "Food and Groceries," accounting for $150. The smallest expense is "Miscellaneous Expenses," at $10. Overall, the budget is balanced, but there are areas where expenses could be optimized for better financial health.</p>
+                </div>
+            `;
+            document.getElementById("financial-report").innerHTML = reportHTML;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+          <a href="home.html"><h1>Student Financial Management</h1></a>
+          <a  href="about.html">About Us</a>
+          <a href="BudgetingTool.html">Budget Control</a>
+          <a  href="payment.html">Tuition payments</a>
+          <a href="sandcmenu.html">Scholarships and Grants</a>
+          <a  href="studentloan.html">Student Loan</a>
+          <a href="resources.html">Resources</a>
+          <a href="contact.html">Contact</a>
+          <a href="Login.html" id="login"><button>Sign Up/Login</button></a>
+        </nav>
+    </header>
+
+    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2811&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Budgeting Background">
+
+<div class="main-content">
+    <h1>Student Budget</h1>
+    <p style="font-size: 22px">Effectively manage your finances as a full-time student with this calculator. Designed to 
+        help you understand your expenses and income throughout the academic year, this calculator allows you to input various
+        costs and earnings. By analyzing your financial data, you can gain valuable insights into your spending habits and make
+        informed decisions about your budget while attending a university, college, or any other full-time educational institution.
+    </p>
+
+    <div class="container">
+        <form id="form">
+            <div style="text-align: center"><h2>Your Expenses</h2></div><br>
+            <div class="mb-3">
+                <label for="school_expenses" class="form-label">School Expenses:*</label>
+                <input type="number" class="form-control" id="school_expenses" name="school_expenses">
+            </div><br>
+            <div class="mb-3">
+                <label for="food_groceries" class="form-label">Food & Groceries:*</label>
+                <input type="number" class="form-control" id="food_groceries" name="food_groceries">
+            </div><br>
+            <div class="mb-3">
+                <label for="living" class="form-label">Living Expenses*</label>
+                <input type="number" class="form-control" id="living" name="living">
+            </div><br>
+            <div class="mb-3">
+                <label for="professional" class="form-label">Professional Fees:*</label>
+                <input type="number" class="form-control" id="professional" name="professional">
+            </div><br>
+            <div class="mb-3">
+                <label for="entertainment_travel" class="form-label">Entertainment & Travel:*</label>
+                <input type="number" class="form-control" id="entertainment_travel" name="entertainment_travel">
+            </div><br>
+            <div class="mb-3">
+                <label for="clothing" class="form-label">Clothing Expenses:*</label>
+                <input type="number" class="form-control" id="clothing" name="clothing">
+            </div><br>
+            <div class="mb-3">
+                <label for="name" class="form-label">Loan Payments:*</label>
+                <input type="number" class="form-control" id="loan_payment" name="loan_payment">
+            </div><br>
+            <div class="mb-3">
+                <label for="contribution_gift" class="form-label">Contributions and Gifts:*</label>
+                <input type="number" class="form-control" id="contribution_gift" name="contribution_gift">
+            </div><br>
+            <div class="mb-3">
+                <label for="investment" class="form-label">Investments*</label>
+                <input type="number" class="form-control" id="investment" name="invesment">
+            </div><br>
+            <div class="mb-3">
+                <label for="miscellaneous" class="form-label">Miscellaneous Expenses:*</label>
+                <input type="number" class="form-control" id="miscellaneous" name="miscellaneous">
+            </div><br>
+            <div class="mb-3">
+                <label for="transportation" class="form-label">Transportation:*</label>
+                <input type="number" class="form-control" id="transportation" name="transportation">
+            </div><br>
+            <div style="text-align: center"><h2>Your Income and contributions</h2></div><br>
+            <div class="mb-3">
+                <label for="income_contribution" class="form-label">Contributions & Income:*</label>
+                <input type="number" class="form-control" id="income_contribution" name="income_contribution">
+            </div><br>
+
+            <button onclick="AfterCalculating()" type="button" class="btn btn-primary">Calculate</button>
+            <button onclick="AfterReport()" type="button" class="btn btn-primary">View Report</button>
+            <br><br>
+            <div id="after-calculating" style="font-size: 30px; text-align: center">At the end of the month you may have an extra $0 in your budget.</div>
+        </form>
+        <p id="pie-chart"></p>
+        <P id="financial-report"></P>
+    </div>
+
+    <p>Definitions</p> 
+
+    <div class="definition">
+        <p><b>Payment Frequency</b></p>
+        <p>Each item in your budget can be scheduled to be paid as follows:</p>
+    </div>
+
+    <table>
+        <tr>
+            <th colspan="2">Payment Frequency Options</th>
+        </tr>
+        <tr class="highlight">
+            <td class="right-align"><b>Start of school year</b></td>
+            <td>One payment at the start of the school year</td>
+        </tr>
+        <tr>
+            <td class="right-align"><b>Semester 1 & 2</b></td>
+            <td>Two payments. One at the beginning of semester 1, the second at the beginning of semester 2.</td>
+        </tr>
+        <tr class="highlight">
+            <td class="right-align"><b>Semester 2</b></td>
+            <td>One payment at the beginning of semester 2.</td>
+        </tr>
+        <tr>
+            <td class="right-align"><b>Monthly of school year</b></td>
+            <td>A payment for each month of the school year, September through April</td>
+        </tr>
+    </table>
+
+    <div class="definition">
+        <p><b>School Expenses</b></p>
+        <p>Costs related to your education, including tuition, books, supplies, lab fees, library fees, and other materials required for your courses.</p>
+        
+        <p><b>Food and Groceries</b></p>
+        <p>Expenses for meal plans, groceries, dining out, snacks, and other food-related costs.</p>
+        
+        <p><b>Living Expenses</b></p>
+        <p>Costs for accommodation (rent or residence fees), utilities (electricity, water, internet, phone), and other daily living expenses.</p>
+        
+        <p><b>Professional Fees</b></h5>
+        <p>Payments for professional services including medical and dental care, eye care, haircuts, manicures, massages, veterinary services, and other similar services.</p>
+        
+        <p><b>Entertainment and Travel</b></p>
+        <p>Expenses for recreational activities like movies, concerts, travel, outings, and other leisure activities.</p>
+        
+        <p><b>Clothing</b></p>
+        <p>Costs for purchasing, cleaning, and repairing clothes, shoes, and accessories.</p>
+        
+        <p><b>Loans</b></p>
+        <p>Regular payments towards any personal, student, or credit card loans.</p>
+        
+        <p><b>Contributions and Gifts</b></p>
+        <p>Charitable donations, church contributions, and costs for gifts given to others for various occasions.</p>
+        
+        <p><b>Savings and Investments</b></p>
+        <p>Money set aside for future use, including savings for short-term and long-term goals, and investments in financial instruments.</p>
+        
+        <p><b>Miscellaneous</b></p>
+        <p>Various other expenses that don't fall into the above categories, such as membership dues, postage, gym fees, gifts, and any unexpected costs.</p>
+        
+        <p><b>Personal Toiletries</b></p>
+        <p>Expenses for personal care products like shampoo, soap, razors, makeup, prescription drugs, vitamins, and other hygiene-related items.</p>
+        
+        <p><b>Transportation</b></p>
+        <p>Costs related to commuting and travel, including bus or train passes, car payments, fuel, maintenance, insurance, and trips home.</p>
+        
+        <p><b>Contributions and Income</b></p>
+        <p>Sources of financial support, including scholarships, grants, other aid, family contributions, part-time job income, and any other available assets or savings.</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Student Financial Management. All rights reserved.</p>
+    <p>
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+</footer>
+
+</body>
+</html>

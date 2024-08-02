@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Loan Page</title>
+    <style>
+        nav {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #34495e;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #e67e22;};
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .reminder {
+            margin-top: 20px;
+        }
+        .reminder label, .reminder input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="home.html"><h1>Student Financial Management</h1></a>
+        <a  href="about.html">About Us</a>
+        <a href="BudgetingTool.html">Budget Control</a>
+        <a  href="payment.html">Tuition payments</a>
+        <a href="sandcmenu.html">Scholarships and Grants</a>
+        <a  href="studentloan.html">Student Loan</a>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact</a>
+        <a href="Login.html" id="login"><button>Sign Up/Login</button></a>
+    </nav>
+    <header>
+        
+    </header>
+    <div class="container">
+        <section>
+            <h2>Loan Due Dates and Amounts</h2>
+            <table>
+                <tr>
+                    <th>Due Date</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>2024-08-01</td>
+                    <td>$500</td>
+                </tr>
+                <tr>
+                    <td>2024-09-01</td>
+                    <td>$500</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Set Reminder for Upcoming Loans</h2>
+            <div class="reminder">
+                <label for="reminder-date">Reminder Date:</label>
+                <input type="date" id="reminder-date" name="reminder-date">
+                
+                <label for="reminder-message">Reminder Message:</label>
+                <input type="text" id="reminder-message" name="reminder-message" placeholder="Enter reminder message">
+                
+                <button type="button">Set Reminder</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Loan Transactions</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Transaction</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>2024-07-01</td>
+                    <td>Payment</td>
+                    <td>$500</td>
+                </tr>
+                <tr>
+                    <td>2024-06-01</td>
+                    <td>Payment</td>
+                    <td>$500</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Loan Statements</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Statement</th>
+                </tr>
+                <tr>
+                    <td>2024-07-01</td>
+                    <td><a href="#">View Statement</a></td>
+                </tr>
+                <tr>
+                    <td>2024-06-01</td>
+                    <td><a href="#">View Statement</a></td>
+                </tr>
+            </table>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Student Financial Management. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="contact.html">Contact</a>
+        </p>
+    </footer>
+ 
+</body>
+</html>
+
